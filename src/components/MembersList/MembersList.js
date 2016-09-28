@@ -18,20 +18,21 @@ class MembersList extends Component {
     });
 
     return (
-      <table>
-        <thead>
-          <h1>Toronto Board Members</h1>
-          <tr>
-            <td> Name </td>
-            <td> Position </td>
-          </tr>
-        </thead>
-        <tbody>
-          {list}
-        </tbody>
-        <br></br>
-        <br></br>
-      </table>
+      <div style={{width: '30%', float: 'left', padding: '2%'}}>
+        <h1 style={{textAlign: 'center'}}>Board Members</h1>
+        <table>
+
+          <thead>
+            <tr>
+              <td> Name </td>
+              <td> Position </td>
+            </tr>
+          </thead>
+          <tbody>
+            {list}
+          </tbody>
+        </table>
+      </div>
     )
   }
 

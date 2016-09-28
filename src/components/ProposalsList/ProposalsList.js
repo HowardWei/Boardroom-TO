@@ -4,15 +4,19 @@ import './ProposalsList.css'
 
 class ProposalsList extends Component {
   render() {
+    console.log(this.props)
     return (
-      <table>
-        <thead>
-          <tr><td>Account</td><td>META</td></tr>
-        </thead>
-        <tbody>
-          {this.props.accounts.map(this.renderAccount)}
-        </tbody>
-      </table>
+      <div>
+        <h1 style={{textAlign: 'center'}}>Active Proposals</h1>
+        <table>
+          <thead>
+            <tr><td>Account</td><td>META</td></tr>
+          </thead>
+          <tbody>
+            {this.props.accounts.map(this.renderAccount)}
+          </tbody>
+        </table>
+      </div>
     )
   }
 

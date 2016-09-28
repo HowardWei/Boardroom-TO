@@ -12,7 +12,6 @@ class App extends Component {
       <div className="App">
       <ProposalsListContainer web3={this.props.web3} />
       <MembersList web3={this.props.web3} />
-      <AccountListContainer web3={this.props.web3} />
       </div>
     )
   }

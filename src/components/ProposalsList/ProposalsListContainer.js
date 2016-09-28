@@ -72,9 +72,8 @@ class ProposalsListContainer extends Component {
 
   render() {
     return (
-      <div>
+      <div style={{width: '62%', float: 'left', padding: '2%'}}>
         <ProposalsList accounts={this.state.accounts} />
-        <SendCoin sender={this.state.coinbase} />
       </div>
     )
   }
