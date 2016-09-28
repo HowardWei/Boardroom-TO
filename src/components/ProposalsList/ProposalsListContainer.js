@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import ProposalsList from 'components/ProposalsList/ProposalsList'
 import SendCoin from 'components/SendCoin/SendCoin'
 
+import BoardRoom from 'contracts/BoardRoom.sol';
 import MetaCoin from 'contracts/MetaCoin.sol';
 import Web3 from 'web3';
 
