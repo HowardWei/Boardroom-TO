@@ -8,20 +8,20 @@ class ProposalsList extends Component {
     return (
       <div>
         <h1 style={{textAlign: 'center'}}>Active Proposals</h1>
-        <table>
-          <thead>
-            <tr><td>Account</td><td>META</td></tr>
-          </thead>
-          <tbody>
-            {this.props.accounts.map(this.renderAccount)}
-          </tbody>
-        </table>
+        {this.props.proposals.map(this.renderProposal)}
+
       </div>
     )
   }
 
-  renderAccount({account, balance}) {
-    return <tr key={account}><td>{account}</td><td>{balance.account}</td></tr>
+  renderProposal(proposal) {
+    return (
+      <div style={{padding: '3px 20px 5px 20px', backgroundColor: '#e9e9e9', marginBottom: '20px'}}>
+        <h2 style={{marginBottom: '3px'}}> {proposal.name} </h2>
+        <p style={{fontSize: '20px'}}> {proposal.descriptionShort} </p>
+        <p style={{textAlign: 'right'}}> Written by: {proposal.proposer} </p>
+      </div>
+    )
   }
 }
 

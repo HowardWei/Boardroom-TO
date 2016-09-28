@@ -73,7 +73,20 @@ class ProposalsListContainer extends Component {
   render() {
     return (
       <div style={{width: '62%', float: 'left', padding: '2%'}}>
-        <ProposalsList accounts={this.state.accounts} />
+        <ProposalsList proposals={
+          [{name: 'Proposal 1',
+            descriptionShort: 'a proposal to test a proposals mechanism',
+            descriptionLong: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis augue ipsum, vulputate in massa ac, condimentum venenatis lacus. Pellentesque gravida tortor vitae erat volutpat, ac porta tortor ullamcorper. Curabitur a nulla at elit dapibus finibus a vel metus. Sed sit amet nunc sit amet dolor feugiat suscipit at at lacus. Nam fermentum tortor mi, posuere imperdiet justo viverra a. Ut eros risus, rutrum vel interdum quis, sollicitudin eget nibh. Donec accumsan ligula non tellus rutrum maximus. Etiam a volutpat libero, ut ullamcorper ante. Donec malesuada sapien mauris, sit amet egestas lorem tincidunt ut. Integer viverra dictum rhoncus. Nullam arcu sapien.',
+            proposer: 'Mark'},
+          {name: 'Proposal 2',
+            descriptionShort: 'a proposal to test a proposals mechanism',
+            descriptionLong: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis augue ipsum, vulputate in massa ac, condimentum venenatis lacus. Pellentesque gravida tortor vitae erat volutpat, ac porta tortor ullamcorper. Curabitur a nulla at elit dapibus finibus a vel metus. Sed sit amet nunc sit amet dolor feugiat suscipit at at lacus. Nam fermentum tortor mi, posuere imperdiet justo viverra a. Ut eros risus, rutrum vel interdum quis, sollicitudin eget nibh. Donec accumsan ligula non tellus rutrum maximus. Etiam a volutpat libero, ut ullamcorper ante. Donec malesuada sapien mauris, sit amet egestas lorem tincidunt ut. Integer viverra dictum rhoncus. Nullam arcu sapien.',
+            proposer: 'Mark'},
+          {name: 'Proposal 3',
+            descriptionShort: 'a proposal to test a proposals mechanism',
+            descriptionLong: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis augue ipsum, vulputate in massa ac, condimentum venenatis lacus. Pellentesque gravida tortor vitae erat volutpat, ac porta tortor ullamcorper. Curabitur a nulla at elit dapibus finibus a vel metus. Sed sit amet nunc sit amet dolor feugiat suscipit at at lacus. Nam fermentum tortor mi, posuere imperdiet justo viverra a. Ut eros risus, rutrum vel interdum quis, sollicitudin eget nibh. Donec accumsan ligula non tellus rutrum maximus. Etiam a volutpat libero, ut ullamcorper ante. Donec malesuada sapien mauris, sit amet egestas lorem tincidunt ut. Integer viverra dictum rhoncus. Nullam arcu sapien.',
+            proposer: 'Mark'}
+          ]} />
       </div>
     )
   }
