@@ -22,8 +22,10 @@ class MembersList extends Component {
         }
         console.log(acc, "acc");
         list = acc.map(function(i){
+          console.log(i);
             return(
                     <tr>
+                    <td> <p> hello!!! </p></td>
                         <td> {i}</td>
                         <td> {i} </td>
                     </tr>
