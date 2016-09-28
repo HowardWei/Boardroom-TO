@@ -31,3 +31,12 @@ table {
     }
   }
 }
+.proposal {
+  padding: 3px 20px 5px 20px;
+  background-color: rgb(239,243,248);
+  margin-bottom: 20px;
+}
+
+.proposal:hover{
+  background-color: rgb(222,246,226);
+}

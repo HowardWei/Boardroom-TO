@@ -19,7 +19,7 @@ class MembersList extends Component {
 
     return (
       <div style={{width: '30%', float: 'left', padding: '2%'}}>
-        <h1 style={{textAlign: 'center'}}>Board Members</h1>
+        <h1 style={{textAlign: 'center', fontWeight: '200'}}>Board Members</h1>
         <table>
 
           <thead>
