@@ -37,18 +37,19 @@ class VoteModal extends Component {
         onTouchTap={this.handleClose}
       />,
     ];
-
+    console.log(this.props.proposal);
     return (
       <div>
-        <RaisedButton label="Dialog" onTouchTap={this.handleOpen} />
+        <RaisedButton label="Vote Now" onTouchTap={this.handleOpen} />
         <Dialog
-          title="Dialog With Actions"
+          title={this.props.proposal.name}
           actions={actions}
           modal={false}
           open={this.state.open}
           onRequestClose={this.handleClose}
         >
-          The actions in this window were passed in as an array of React objects.
+          <p>{this.props.proposal.descriptionLong}</p>
+          By: {this.props.proposal.proposer}
         </Dialog>
       </div>
     );
