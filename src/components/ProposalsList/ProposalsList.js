@@ -2,11 +2,13 @@
 import React, { Component } from 'react'
 import './ProposalsList.css'
 import VoteModal from 'components/VoteModal/VoteModal'
+import NewPropModal from 'components/NewPropModal/NewPropModal'
 
 class ProposalsList extends Component {
   render() {
     return (
       <div>
+        <NewPropModal></NewPropModal>
         <h1 style={{textAlign: 'center', fontWeight: '200'}}>Active Proposals</h1>
         {this.props.proposals.map(this.renderProposal)}
 
