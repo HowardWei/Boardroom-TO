@@ -34,7 +34,6 @@
     "precss": "^1.4.0",
     "react": "^15.2.1",
     "react-dom": "^15.2.1",
-    "react-modal": "^1.4.0",
     "rimraf": "2.5.3",
     "style-loader": "0.13.1",
     "temp": "^0.8.3",

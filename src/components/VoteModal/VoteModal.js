@@ -1,68 +1,58 @@
 import React, { Component } from 'react';
 import './VoteModal.css';
-import Modal from 'react-modal';
 import BoardRoom from 'contracts/BoardRoom.sol';
 import Web3 from 'web3';
 
-const customStyles = {
-  content : {
-    top                   : '50%',
-    left                  : '50%',
-    right                 : 'auto',
-    bottom                : 'auto',
-    marginRight           : '-50%',
-    transform             : 'translate(-50%, -50%)'
-  }
-};
+import Dialog from 'material-ui/Dialog';
+import FlatButton from 'material-ui/FlatButton';
+import RaisedButton from 'material-ui/RaisedButton';
+
 
 class VoteModal extends Component {
 
-  componentDidMount() {
-  this.setState({modalIsOpen: false});
-}
+  state = {
+    open: false,
+  };
 
-  openModal() {
-    this.state.modalIsOpen = true;
-    console.log (this.state.modalIsOpen);
-  }
+  handleOpen = () => {
+    this.setState({open: true});
+    console.log('hello')
+  };
 
-  afterOpenModal() {
-    // references are now sync'd and can be accessed.
-    //this.refs.subtitle.style.color = '#f00';
-  }
+  handleClose = () => {
+    this.setState({open: false});
+  };
 
-  closeModal() {
-    this.state.modalIsOpen = false;
-  }
-
-    //var accounts;
   render() {
-console.log('state', this.state);
+    const actions = [
+      <FlatButton
+        label="Cancel"
+        primary={true}
+        onTouchTap={this.handleClose}
+      />,
+      <FlatButton
+        label="Submit"
+        primary={true}
+        keyboardFocused={true}
+        onTouchTap={this.handleClose}
+      />,
+    ];
+
     return (
       <div>
-        <button onClick={this.openModal()}>Open Modal</button>
-        <Modal
-          isOpen={false}
-          onAfterOpen={this.afterOpenModal()}
-          onRequestClose={this.closeModal()}
-          style={customStyles} >
-
-          <h2 ref="subtitle">Hello</h2>
-          <button onClick={this.closeModal()}>close</button>
-          <div>I am a modal</div>
-          <form>
-            <input />
-            <button>tab navigation</button>
-            <button>stays</button>
-            <button>inside</button>
-            <button>the modal</button>
-          </form>
-        </Modal>
+        <RaisedButton label="Dialog" onTouchTap={this.handleOpen} />
+        <Dialog
+          title="Dialog With Actions"
+          actions={actions}
+          modal={false}
+          open={this.state.open}
+          onRequestClose={this.handleClose}
+        >
+          The actions in this window were passed in as an array of React objects.
+        </Dialog>
       </div>
-    )
+    );
   }
-
-    //generate tr class with name and respective position
 
 
   }
