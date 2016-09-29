@@ -53,7 +53,7 @@ class MembersList extends Component {
     //generate tr class with name and respective position
 
     return (
-      <div style={{width: '30%', float: 'left', padding: '2%'}}>
+      <div style={{width: '42%', float: 'left', padding: '50px 0px 0px 0px'}}>
         <h1 style={{textAlign: 'center', fontWeight: '200'}}>Board Members</h1>
         <table>
           <thead>
