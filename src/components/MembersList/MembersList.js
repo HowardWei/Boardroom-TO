@@ -39,11 +39,11 @@ class MembersList extends Component {
     this.props.web3.eth.getAccounts(function(err, acc) {
         if(err != null){
             window.alert("Uh OH U DUN GOOOOFIEEE");
-            return
+            return;
         }
         if(acc.length === 0 ){
-            window.alert("0 accounts m8")
-                return
+            window.alert("0 accounts m8");
+            return;
         }
         console.log(acc, "acc");
         list = acc.map(function(i){
