@@ -16,6 +16,9 @@ class MembersList extends Component {
     handleChange() {
 
     }
+    getActualAccounts() {
+	
+    }
     getAccounts() {
       this.props.web3.eth.getAccounts(function(err, acc) {
           if(err != null){
