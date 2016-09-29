@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import AccountList from 'components/AccountList/AccountList'
 import SendCoin from 'components/SendCoin/SendCoin'
-
 import MetaCoin from 'contracts/MetaCoin.sol';
 import Web3 from 'web3';
 
