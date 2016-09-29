@@ -17,7 +17,7 @@ class MembersList extends Component {
 
     }
     getActualAccounts() {
-	
+
     }
     getAccounts() {
       this.props.web3.eth.getAccounts(function(err, acc) {
@@ -53,7 +53,7 @@ class MembersList extends Component {
     //generate tr class with name and respective position
 
     return (
-      <div style={{width: '42%', float: 'left', padding: '50px 0px 0px 0px'}}>
+      <div style={{width: '30%', float: 'left', padding: '2%'}}>
         <h1 style={{textAlign: 'center', fontWeight: '200'}}>Board Members</h1>
         <table>
           <thead>

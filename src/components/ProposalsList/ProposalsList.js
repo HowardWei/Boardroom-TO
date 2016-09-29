@@ -18,7 +18,7 @@ class ProposalsList extends Component {
 
   renderProposal(proposal) {
     return (
-      <div className='proposal' style={{width: 'inherit'}}>
+      <div className='proposal'>
         <h2 style={{marginBottom: '3px', fontWeight: '200'}}> {proposal.name} </h2>
         <p style={{fontSize: '20px', fontStyle: 'italic'}}> {proposal.descriptionShort} </p>
         <p style={{textAlign: 'right'}}> Written by: {proposal.proposer} </p>
