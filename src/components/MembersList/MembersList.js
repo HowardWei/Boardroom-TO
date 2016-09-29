@@ -4,24 +4,39 @@ import './MembersList.css'
 import BoardRoom from 'contracts/BoardRoom.sol';
 import Web3 from 'web3';
 class MembersList extends Component {
-
+    state = {
+      accounts: []
+    }
     constructor(props) {
       super(props)
       this.handleChange = this.handleChange.bind(this);
 
-      this.state = {
-        display: false
-      }
     }
 
     handleChange() {
-      if(this.state.display) {
-        this.setState({ display : false} );
-      } else {
-        this.setState({ display : true} );
-      }
-    }
 
+    }
+    getAccounts() {
+      this.props.web3.eth.getAccounts(function(err, acc) {
+          if(err != null){
+              window.alert("Uh OH U DUN GOOOOFIEEE");
+              return
+          }
+          if(acc.length === 0 ){
+              window.alert("0 accounts m8")
+                  return
+          }
+
+          this.setState({accounts: acc})
+      }.bind(this));
+    }
+    memberRow(i){
+        return(
+                <tr>
+                    <td> {i} </td>
+                </tr>
+              )
+     }
     //var accounts;
     render() {
     // list of names and positions in array
@@ -29,43 +44,14 @@ class MembersList extends Component {
     var positions = ["manager", "developer"];
     var list = [""];
 
-    var modalOn;
-    if(this.state.display) {
-      modalOn = 'appear';
-    } else {
-      modalOn = 'disappear';
-    }
 
-    this.props.web3.eth.getAccounts(function(err, acc) {
-        if(err != null){
-            window.alert("Uh OH U DUN GOOOOFIEEE");
-            return
-        }
-        if(acc.length === 0 ){
-            window.alert("0 accounts m8")
-                return
-        }
-        console.log(acc, "acc");
-        list = acc.map(function(i){
-          console.log(i);
-            return(
-                    <tr>
-                    <td> <p> hello!!! </p></td>
-                        <td> {i}</td>
-                        <td> {i} </td>
-                    </tr>
-                  )
-         });
-        console.log(list);
-    });
+    this.getAccounts();
 
     //generate tr class with name and respective position
 
     return (
       <div style={{width: '30%', float: 'left', padding: '2%'}}>
         <h1 style={{textAlign: 'center', fontWeight: '200'}}>Board Members</h1>
-        <input type="checkbox" onChange={this.handleChange}/>  
-        <p> Modal should {modalOn} </p>
         <table>
           <thead>
             <tr>
@@ -74,7 +60,7 @@ class MembersList extends Component {
             </tr>
           </thead>
           <tbody>
-            {list}
+            {this.state.accounts.map(this.memberRow)}
           </tbody>
         </table>
       </div>

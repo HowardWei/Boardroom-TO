@@ -37,7 +37,6 @@ class VoteModal extends Component {
         onTouchTap={this.handleClose}
       />,
     ];
-    console.log(this.props.proposal);
     return (
       <div>
         <RaisedButton label="Vote Now" onTouchTap={this.handleOpen} />
