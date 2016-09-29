@@ -73,7 +73,7 @@ class ProposalsListContainer extends Component {
 
   render() {
     return (
-      <div style={{width: '50%', float: 'left', padding: '50px 20px 0px 0px'}}>
+      <div style={{width: '52%', float: 'left', padding: '2%'}}>
         <ProposalsList proposals={
           [{name: 'Proposal 1',
             descriptionShort: 'a proposal to test a proposals mechanism',
