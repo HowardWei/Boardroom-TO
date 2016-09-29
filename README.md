@@ -1,8 +1,8 @@
 ## Truffle + Webpack Demo App
 
-![MetaCoin Example](https://github.com/ConsenSys/truffle-webpack-demo/blob/master/docs/images/metacoin.jpg?raw=true)
+![BoardRoom Example (built on Metacoin example )](https://github.com/ConsenSys/truffle-webpack-demo/blob/master/docs/images/boardroom.jpg?raw=true)
 
-This is a simple Dapp boilerplate utilising Truffle and Webpack. Fire up the app, then try changing the value of the default balance in `contracts/MetaCoin.sol` from `10000` to `50000`and see the contract be recompiled, hot reloaded and the value updated.
+This is a simple BoardRoom Dapp boilerplate utilising Truffle and Webpack.
 
 ### Coding Style
 
