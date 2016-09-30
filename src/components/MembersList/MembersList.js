@@ -29,7 +29,6 @@ class MembersList extends Component {
       var reg = OpenReg.deployed();
       var rules = OpenRegRules.deployed();
 
-      console.log(board);
 
     }
 

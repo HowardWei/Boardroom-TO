@@ -106,6 +106,13 @@ contract BoardRoom is BoardRoomInterface {
     created = v.created;
   }
 
+  function newProposalBasic(string name)constant returns (uint proposalID) {
+    proposalID = proposals.length++;
+    Proposal p = proposals[proposalID];
+    p.name = name;
+    ProposalCreated(proposalID, 0x0, 0);
+  }
+
   function voterAddressOf(uint _proposalID, uint _voteID) constant returns (address) {
     return proposals[_proposalID].voters[_voteID];
   }
