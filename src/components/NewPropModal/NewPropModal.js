@@ -7,7 +7,8 @@ import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
-
+import FloatingActionButton from 'material-ui/FloatingActionButton';
+import ContentAdd from 'material-ui/svg-icons/content/add';
 
 class NewPropModal extends Component {
 
@@ -40,7 +41,11 @@ class NewPropModal extends Component {
     ];
     return (
       <div>
-        <RaisedButton label="Create New Proposal" onTouchTap={this.handleOpen} />
+      <div style={{marginBottom: '-65px'}}>
+        <FloatingActionButton onTouchTap={this.handleOpen} mini={true} >
+          <ContentAdd />
+        </FloatingActionButton>
+</div>
         <Dialog
           title="New Proposal"
           actions={actions}

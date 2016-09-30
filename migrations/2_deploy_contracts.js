@@ -5,5 +5,4 @@ module.exports = function(deployer) {
   deployer.deploy(OpenRegistryRules);
   deployer.deploy(Proxy);
   deployer.deploy(BoardRoom);
-  deployer.autolink();
 };

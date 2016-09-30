@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './MembersList.css'
+import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
 
 import BoardRoom from 'contracts/BoardRoom.sol';
 import Web3 from 'web3';
@@ -35,9 +36,10 @@ class MembersList extends Component {
     }
     memberRow(i){
         return(
-                <tr>
-                    <td> {i} </td>
-                </tr>
+              <TableRow>
+                <TableRowColumn>Zach</TableRowColumn>
+                <TableRowColumn>{i}</TableRowColumn>
+              </TableRow>
               )
      }
     //var accounts;
@@ -53,19 +55,21 @@ class MembersList extends Component {
     //generate tr class with name and respective position
 
     return (
-      <div style={{width: '42%', float: 'left', padding: '50px 0px 0px 0px'}}>
-        <h1 style={{textAlign: 'center', fontWeight: '200'}}>Board Members</h1>
-        <table>
-          <thead>
-            <tr>
-              <td> Name </td>
-              <td> Position </td>
-            </tr>
-          </thead>
-          <tbody>
-            {this.state.accounts.map(this.memberRow)}
-          </tbody>
-        </table>
+
+      <div style={{width: '30%', float: 'left', padding: '2%'}}>
+        <h1 style={{textAlign: 'center', fontWeight: '200', marginTop: '0px'}}>Board Members</h1>
+        <Table selectable={false} style={{tableLayout: 'auto'}}>
+          <TableHeader adjustForCheckbox={false} displaySelectAll={false}>
+            <TableRow>
+              <TableHeaderColumn>Name</TableHeaderColumn>
+              <TableHeaderColumn>Address</TableHeaderColumn>
+            </TableRow>
+          </TableHeader>
+          <TableBody displayRowCheckbox={false}>
+          {this.state.accounts.map(this.memberRow)}
+
+          </TableBody>
+        </Table>
       </div>
     )
   }
