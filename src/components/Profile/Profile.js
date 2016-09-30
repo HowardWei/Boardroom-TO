@@ -3,7 +3,7 @@ import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
 import RaisedButton from 'material-ui/RaisedButton';
 import Divider from 'material-ui/Divider';
-import './profile.css'
+import './Profile.css'
 
 class Profile extends Component {
   render() {

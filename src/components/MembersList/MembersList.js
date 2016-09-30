@@ -3,7 +3,20 @@ import './MembersList.css'
 import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
 
 import BoardRoom from 'contracts/BoardRoom.sol';
+import OpenReg from 'contracts/OpenRegistry.sol'
+import OpenRegRules from 'contracts/OpenRegistryRules.sol'
 import Web3 from 'web3';
+/*
+
+import MetaCoin from 'contracts/MetaCoin.sol';
+import Web3 from 'web3';
+
+const provider = new Web3.providers.HttpProvider('http://localhost:8545')
+MetaCoin.setProvider(provider);
+*/
+const provider = new Web3.providers.HttpProvider('http://localhost:8545')
+OpenReg.setProvider(provider);
+
 class MembersList extends Component {
     state = {
       accounts: []
@@ -11,6 +24,12 @@ class MembersList extends Component {
     constructor(props) {
       super(props)
       this.handleChange = this.handleChange.bind(this);
+
+      var board = BoardRoom.deployed();
+      var reg = OpenReg.deployed();
+      var rules = OpenRegRules.deployed();
+
+      console.log(board);
 
     }
 

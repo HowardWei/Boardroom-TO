@@ -116,9 +116,6 @@ contract BoardRoom is BoardRoomInterface {
   function numProposals() constant returns (uint) {
     return proposals.length;
   }
-  function proposalsList() constant returns (Proposal[]) {
-    return proposals;
-  }
 
   function hasVoted(uint _proposalID, address _voter) constant returns (bool) {
     if(proposals[_proposalID].votes[_voter].created > 0) {
