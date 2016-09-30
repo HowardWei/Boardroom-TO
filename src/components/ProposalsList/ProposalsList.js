@@ -37,8 +37,7 @@ class ProposalsList extends Component {
   }
 
   renderProposal(proposal) {
-    var board = BoardRoom.deployed()
-    console.log(board.numProposals());
+
 
     return (
       <Card style={{marginBottom: '25px'}}>
