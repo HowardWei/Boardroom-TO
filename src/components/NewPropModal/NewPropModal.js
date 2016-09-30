@@ -41,11 +41,11 @@ class NewPropModal extends Component {
     ];
     return (
       <div>
-      <div style={{marginBottom: '-65px'}}>
-        <FloatingActionButton onTouchTap={this.handleOpen} mini={true} >
-          <ContentAdd />
-        </FloatingActionButton>
-</div>
+        <div style={{marginBottom: '-65px'}}>
+          <FloatingActionButton onTouchTap={this.handleOpen} mini={true} >
+            <ContentAdd />
+          </FloatingActionButton>
+        </div>
         <Dialog
           title="New Proposal"
           actions={actions}

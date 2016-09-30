@@ -12,6 +12,7 @@ contract BoardRoomInterface {
   function positionWeightOf(uint _proposalID, uint _position) constant returns (uint) {}
   function voteOf(uint _proposalID, address _voter) constant returns (uint, uint, uint) {}
   function hasVoted(uint _proposalID, address _voter) constant returns (bool) {}
+  function numProposals() constant returns (uint) {}
 }
 
 contract BoardRoom is BoardRoomInterface {
@@ -122,7 +123,12 @@ contract BoardRoom is BoardRoomInterface {
       return true;
     }
   }
-
+  function getNameForProposal(uint _proposalID) returns (string){
+    return proposals[_proposalID].name;
+  }
+  function getPeriodForProposal(uint _proposalID) returns (uint){
+    return proposals[_proposalID].debatePeriod;
+  }
   struct Proposal {
     string name;
     address destination;
