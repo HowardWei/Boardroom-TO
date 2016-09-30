@@ -6,6 +6,7 @@
     "autoprefixer": "6.3.7",
     "babel-core": "6.10.4",
     "babel-eslint": "6.1.2",
+    "react-tap-event-plugin": "*",
     "babel-loader": "6.2.4",
     "babel-plugin-syntax-trailing-function-commas": "6.8.0",
     "babel-plugin-transform-class-properties": "6.10.2",
@@ -42,7 +43,8 @@
     "url-loader": "0.5.7",
     "web3": "^0.17.0-alpha",
     "webpack": "1.13.1",
-    "webpack-dev-server": "1.14.1"
+    "webpack-dev-server": "1.14.1",
+    "material-ui": "*"
   },
   "dependencies": {
     "react-modal": "^1.4.0"
