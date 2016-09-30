@@ -26,7 +26,7 @@ class MembersList extends Component {
       super(props)
       this.handleChange = this.handleChange.bind(this);
       this.getAccounts();
-      
+
       var board = BoardRoom.deployed();
       var reg = OpenReg.deployed();
       var rules = OpenRegRules.deployed();
@@ -38,6 +38,7 @@ class MembersList extends Component {
       console.log(reg.numMembers.call().then(function (val){
         console.log(val.toNumber());
       }));
+
 
     }
 

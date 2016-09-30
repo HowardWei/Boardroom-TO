@@ -6,9 +6,11 @@ import NewPropModal from 'components/NewPropModal/NewPropModal'
 import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
 import BoardRoom from 'contracts/BoardRoom.sol';
+import Web3 from 'web3';
 
 const provider = new Web3.providers.HttpProvider('http://localhost:8545')
 BoardRoom.setProvider(provider);
+var board = BoardRoom.deployed();
 
 class ProposalsList extends Component {
 
@@ -18,11 +20,11 @@ class ProposalsList extends Component {
 
   constructor(props) {
     super(props)
+
     this.getProps();
   }
 
   getProps(){
-    var board = BoardRoom.deployed();
     for (var i = 0; i < board.numProposals(); i++){
       console.log(board.getNameForProposal(i))
     }
@@ -40,8 +42,6 @@ class ProposalsList extends Component {
 
 
   renderProposal(proposal) {
-    var board = BoardRoom.deployed()
-    //console.log(board.numProposals());
 
     return (
       <Card style={{marginBottom: '25px'}}>
