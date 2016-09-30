@@ -3,6 +3,8 @@ import React, { Component } from 'react'
 import './ProposalsList.css'
 import VoteModal from 'components/VoteModal/VoteModal'
 import NewPropModal from 'components/NewPropModal/NewPropModal'
+import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
+import FlatButton from 'material-ui/FlatButton';
 
 class ProposalsList extends Component {
   render() {
@@ -18,12 +20,21 @@ class ProposalsList extends Component {
 
   renderProposal(proposal) {
     return (
-      <div className='proposal'>
-        <h2 style={{marginBottom: '3px', fontWeight: '200'}}> {proposal.name} </h2>
-        <p style={{fontSize: '20px', fontStyle: 'italic'}}> {proposal.descriptionShort} </p>
-        <p style={{textAlign: 'right'}}> Written by: {proposal.proposer} </p>
-        <VoteModal proposal={proposal}> </VoteModal>
-      </div>
+      <Card style={{marginBottom: '25px'}}>
+        <CardHeader
+          title={proposal.name}
+          subtitle={proposal.descriptionShort}
+          actAsExpander={true}
+          showExpandableButton={true}
+        />
+        <CardActions>
+          <FlatButton label="Approve" />
+          <FlatButton label="Refuse" />
+        </CardActions>
+        <CardText expandable={true}>
+          {proposal.descriptionLong}
+        </CardText>
+      </Card>
     )
   }
 }

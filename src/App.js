@@ -15,7 +15,7 @@ class App extends Component {
 
     return (
       <div className="App">
-        <div style={{width: '80%', display: 'inline-block'}}>
+        <div style={{width: '92%', display: 'inline-block'}}>
           <img src='../logo.svg' style={{margin: '0 auto', display: 'block', height: '135px'}}></img>
         </div>
         <MuiThemeProvider>
@@ -24,8 +24,9 @@ class App extends Component {
         <MuiThemeProvider>
           <ProposalsListContainer web3={this.props.web3} />
         </MuiThemeProvider>
+        <MuiThemeProvider>
           <MembersList web3={this.props.web3} />
-
+        </MuiThemeProvider>
       </div>
     )
   }
