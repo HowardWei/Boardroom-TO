@@ -11,14 +11,16 @@ const provider = new Web3.providers.HttpProvider('http://localhost:8545')
 BoardRoom.setProvider(provider);
 
 class ProposalsList extends Component {
+
+  state = {
+    accounts: []
+  }
+
   constructor(props) {
     super(props)
-    var board = BoardRoom.deployed();
-    board.newProposal( 0x0, "Nicks Proposal",0x0 , 30, 0x0, 500, "");
-
     this.getProps();
-
   }
+
   getProps(){
     var board = BoardRoom.deployed();
     for (var i = 0; i < board.numProposals(); i++){
@@ -36,9 +38,10 @@ class ProposalsList extends Component {
     )
   }
 
+
   renderProposal(proposal) {
     var board = BoardRoom.deployed()
-    console.log(board.numProposals());
+    //console.log(board.numProposals());
 
     return (
       <Card style={{marginBottom: '25px'}}>

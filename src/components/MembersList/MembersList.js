@@ -16,7 +16,8 @@ MetaCoin.setProvider(provider);
 */
 const provider = new Web3.providers.HttpProvider('http://localhost:8545')
 OpenReg.setProvider(provider);
-
+BoardRoom.setProvider(provider);
+OpenRegRules.setProvider(provider);
 class MembersList extends Component {
     state = {
       accounts: []
@@ -24,12 +25,19 @@ class MembersList extends Component {
     constructor(props) {
       super(props)
       this.handleChange = this.handleChange.bind(this);
-
+      this.getAccounts();
+      
       var board = BoardRoom.deployed();
       var reg = OpenReg.deployed();
       var rules = OpenRegRules.deployed();
 
-      console.log(board);
+      rules.setRegistry(reg.address);
+      board.changeRules(rules.address);
+
+
+      console.log(reg.numMembers.call().then(function (val){
+        console.log(val.toNumber());
+      }));
 
     }
 
@@ -51,6 +59,15 @@ class MembersList extends Component {
           }
 
           this.setState({accounts: acc})
+           var reg = OpenReg.deployed();
+
+           reg.register(acc[0], {from: acc[0]}).then(function(res){
+             console.log("SUCCESS");
+           });
+
+           console.log(reg.numMembers.call().then(function(res){
+             console.log(res.toNumber());
+           }));
       }.bind(this));
     }
     memberRow(i){
@@ -67,9 +84,6 @@ class MembersList extends Component {
     var names = ["employee1", "employee2"];
     var positions = ["manager", "developer"];
     var list = [""];
-
-
-    this.getAccounts();
 
     //generate tr class with name and respective position
 

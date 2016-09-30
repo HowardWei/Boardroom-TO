@@ -12,15 +12,50 @@ MetaCoin.setProvider(provider);
 class ProposalsListContainer extends Component {
   constructor(props) {
     super(props)
-
+    console.log("CONSTUCTOR FOR PROPOSAL LIST CONTAINER ENTER")
     this.state = {
       accounts: [],
       coinbase: ''
     }
+    this.getAccounts()
 
     this._getAccountBalance = this._getAccountBalance.bind(this)
     this._getAccountBalances = this._getAccountBalances.bind(this)
+
   }
+  getProps(){
+    var board = BoardRoom.deployed();
+    board.numProposals.call().then(function(res){
+      for (var i = 0; i <res; i++){
+        board.getNameForProposal.call(i,{from: this.state.accounts[0]}).then(function(name){
+          console.log(name);
+        })
+      }
+    })
+  }
+  getAccounts() {
+    this.props.web3.eth.getAccounts(function(err, acc) {
+        if(err != null){
+            window.alert("Uh OH U DUN GOOOOFIEEE");
+            return
+        }
+        if(acc.length === 0 ){
+            window.alert("0 accounts m8")
+                return
+        }
+
+        this.setState({accounts: acc})
+        var board = BoardRoom.deployed();
+        board.newProposal("ERICS PROP3","0x0", 30, acc[0], 500, "",{from: acc[0]}).then(function(res){
+          console.log("Added new proposal");
+          board.numProposals.call().then(function(result){
+            console.log ("We now have ", result.toNumber(), " proposals.")
+          })
+        });
+        this.getProps();
+    }.bind(this));
+  }
+
 
   _getAccountBalance (account) {
     var meta = MetaCoin.deployed()
