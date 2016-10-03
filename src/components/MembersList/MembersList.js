@@ -31,7 +31,7 @@ class MembersList extends Component {
       var reg = OpenReg.deployed();
       var rules = OpenRegRules.deployed();
 
-      rules.setRegistry(reg.address);
+      console.log(board)
       board.changeRules(rules.address);
 
 

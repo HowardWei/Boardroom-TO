@@ -6,9 +6,6 @@ contract OpenRegistryRules is Rules {
   function OpenRegistryRules(address _registry){
     registry = OpenRegistry(_registry);
   }
-  function setRegistry(address _registry){
-  registry = OpenRegistry(_registry);
-}
 
   function hasWon(uint _proposalID) constant returns (bool) {
     BoardRoom board = BoardRoom(msg.sender);
