@@ -1,6 +1,6 @@
 ## Truffle + Webpack Demo App
 
-![BoardRoom Example (built on Metacoin example )](https://github.com/HowardWei/Boardroom-TO/blob/master/docs/images/boardroom.jpg)
+![BoardRoom Example (built on Metacoin example )](https://github.com/HowardWei/Boardroom-TO/docs/images/boardroom.jpg?raw=true)
 
 This is a simple BoardRoom Dapp boilerplate utilising Truffle and Webpack.
 
