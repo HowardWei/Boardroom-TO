@@ -18,13 +18,19 @@ class NewPropModal extends Component {
 
   handleOpen = () => {
     this.setState({open: true});
-    console.log('hello')
   };
 
   handleClose = () => {
     this.setState({open: false});
   };
 
+  handleProposal = () => {
+    var board = BoardRoom.deployed();
+    var name = document.getElementById("name").value
+    board.newProposalBasic(name).then(function(res){
+      console.log(name + " was added successfully");
+    });
+  }
   render() {
     const actions = [
       <FlatButton
@@ -36,7 +42,7 @@ class NewPropModal extends Component {
         label="Submit"
         primary={true}
         keyboardFocused={true}
-        onTouchTap={this.handleClose}
+        onTouchTap={this.handleProposal}
       />,
     ];
     return (
@@ -53,7 +59,7 @@ class NewPropModal extends Component {
           open={this.state.open}
           onRequestClose={this.handleClose}
         >
-        <TextField hintText="Proposal Name" floatingLabelText="Name" />
+        <TextField hintText="Proposal Name" id="name" floatingLabelText="Name" />
         <TextField style={{marginLeft: '20px'}} hintText="This proposal is...." floatingLabelText="Description" rows={1} rowsMax={4}/>
         <TextField hintText="Russel" floatingLabelText="Name of Proposer" />
         </Dialog>

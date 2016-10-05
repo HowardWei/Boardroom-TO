@@ -14,10 +14,6 @@ var board = BoardRoom.deployed();
 
 class ProposalsList extends Component {
 
-  state = {
-    accounts: []
-  }
-
   constructor(props) {
     super(props)
 

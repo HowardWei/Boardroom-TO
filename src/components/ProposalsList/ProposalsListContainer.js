@@ -18,21 +18,13 @@ class ProposalsListContainer extends Component {
       proposals: [],
     }
     this.getAccounts()
+    this._getProposals()
 
 
     this._getProposal = this._getProposal.bind(this)
     this._getProposals = this._getProposals.bind(this)
   }
-  getProps(){
-    var board = BoardRoom.deployed();
-    board.numProposals.call().then(function(res){
-      for (var i = 0; i <res; i++){
-        board.getNameForProposal.call(i,{from: this.state.accounts[0]}).then(function(name){
-          console.log(name);
-        })
-      }
-    })
-  }
+
   getAccounts() {
     this.props.web3.eth.getAccounts(function(err, acc) {
         if(err != null){
@@ -49,7 +41,7 @@ class ProposalsListContainer extends Component {
         board.newProposal("ERICS PROP3","0x0", 30, acc[0], 500, "",{from: acc[0]}).then(function(res){
           console.log("Added new proposal");
           board.numProposals.call().then(function(result){
-            console.log ("We now have ", result.toNumber(), " proposals.")
+            console.log ("We now have ", result.toNumber(), " proposals.");
           })
         });
         this.getProps();
@@ -58,13 +50,14 @@ class ProposalsListContainer extends Component {
 
 
   _getProposal (proposalNum) {
-    var board = BoardRoom.deployed()
-    var name = board.getNameForProposal(proposalNum);
-    var period = board.getPeriodForProposal(proposalNum);
-    return {name: name, period: period};
+    var myName = board.getNameForProposal(proposalNum);
+    var myPeriod = board.getPeriodForProposal(proposalNum);
+    return {name: myName, period: myPeriod};
   }
 
+
   _getProposals () {
+    var that = this;
     this.props.web3.eth.getAccounts(function (err, accs) {
       if (err != null) {
         window.alert('There was an error fetching your accounts.')
@@ -76,19 +69,24 @@ class ProposalsListContainer extends Component {
         return
       }
       var proposalList = [];
-      for (var i = 0; i < board.numProposals(); i++){
-        var newProp = this._getProposal(i);
-        proposalList.append(newProp);
-      }
+      var num;
 
+      board.numProposals.call().then(function (result){
+        num = result.toNumber();
+        for (var i = 0; i < num; i++){
+          var newProp = that._getProposal(i);
+          proposalList.push(newProp);
+
+        }
+      });
 
     }.bind(this))
   }
 
   componentDidMount() {
-    const refreshProposals = () => {
-      this._getProposals()
-    }
+    // const refreshProposals = () => {
+    //   this._getProposals()
+    // }
 
     refreshProposals()
 
