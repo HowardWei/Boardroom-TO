@@ -25,7 +25,6 @@ class MembersList extends Component {
     constructor(props) {
       super(props)
       this.handleChange = this.handleChange.bind(this);
-      this.getAccounts();
 
       var board = BoardRoom.deployed();
       var reg = OpenReg.deployed();
@@ -41,14 +40,7 @@ class MembersList extends Component {
 
 
     }
-
-    handleChange() {
-
-    }
-    getActualAccounts() {
-
-    }
-    getAccounts() {
+    componentWillMount(){
       this.props.web3.eth.getAccounts(function(err, acc) {
           if(err != null){
               window.alert("Uh OH U DUN GOOOOFIEEE");
@@ -59,16 +51,66 @@ class MembersList extends Component {
                   return
           }
 
-          this.setState({accounts: acc})
+          //this.setState({accounts: acc})
+           var reg = OpenReg.deployed();
+           var numMem = 0;
+           var memList = [];
+           reg.numMembers.call().then(function(res){
+            numMem = res.toNumber();
+             for (var i = 0; i < numMem; i++){
+               reg.memberForId(i, {from: acc[0]}).then(function(res){
+                 memList.push(''+res+'');
+               });
+             }
+             console.log('memlistATEND', memList);
+             this.setState({accounts: memList});
+             console.log("the state is wrong", this.state.accounts);
+           }.bind(this));
+
+      }.bind(this));
+    }
+    handleChange() {
+
+    }
+    getActualAccounts() {
+
+    }
+    getAccounts() {
+
+
+
+      this.props.web3.eth.getAccounts(function(err, acc) {
+          if(err != null){
+              window.alert("Uh OH U DUN GOOOOFIEEE");
+              return
+          }
+          if(acc.length === 0 ){
+              window.alert("0 accounts m8")
+                  return
+          }
+
+          //this.setState({accounts: acc})
            var reg = OpenReg.deployed();
 
            reg.register(acc[0], {from: acc[0]}).then(function(res){
-             console.log("SUCCESS");
+             console.log("SUCCESS", res);
            });
+           var numMem = 0;
+           var memList = [];
+           reg.numMembers.call().then(function(res){
+            numMem = res.toNumber();
+             for (var i = 0; i < numMem; i++){
+               reg.memberForId(i, {from: acc[0]}).then(function(res){
+                 memList.push(''+res+'');
+               });
+             }
+             var arr = ['hi', 'hello'];
+             console.log('memlist', memList);
+             console.log('arr', arr);
+             this.setState({accounts: arr});
+             console.log(this.state.accounts);
+           }.bind(this));
 
-           console.log(reg.numMembers.call().then(function(res){
-             console.log(res.toNumber());
-           }));
       }.bind(this));
     }
     memberRow(i){
@@ -82,9 +124,8 @@ class MembersList extends Component {
     //var accounts;
     render() {
     // list of names and positions in array
-    var names = ["employee1", "employee2"];
-    var positions = ["manager", "developer"];
-    var list = [""];
+
+
 
     //generate tr class with name and respective position
 
